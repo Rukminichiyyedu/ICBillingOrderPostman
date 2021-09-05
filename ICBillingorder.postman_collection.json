@@ -1,0 +1,334 @@
+{
+	"info": {
+		"_postman_id": "63d391d4-4dd7-4b5e-ae6a-5da8951a94f0",
+		"name": "IC Billingorder",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "Create Billing Order Test",
+			"item": [
+				{
+					"name": "Post",
+					"event": [
+						{
+							"listen": "prerequest",
+							"script": {
+								"exec": [
+									"pm.environment.set(\"firstName\", \"string\");"
+								],
+								"type": "text/javascript"
+							}
+						},
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.environment.unset(\"firstName\");\r",
+									"pm.test(\"Successful POST request\", function () {\r",
+									"    pm.expect(pm.response.code).to.be.oneOf([201, 202]);\r",
+									"});\r",
+									"pm.test(\"Response time is less than 200ms\", function () {\r",
+									"    pm.expect(pm.response.responseTime).to.be.below(200);\r",
+									"});\r",
+									""
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"id\": 2,\r\n  \"firstName\": \"string\",\r\n  \"lastName\": \"string\",\r\n  \"email\": \"string\",\r\n  \"phone\": \"string\",\r\n  \"city\": \"string\",\r\n  \"zipCode\": \"string\",\r\n  \"addressLine1\": \"string\",\r\n  \"addressLine2\": \"string\",\r\n  \"itemNumber\": 0,\r\n  \"comment\": \"string\",\r\n  \"state\": \"AL\"\r\n}"
+						},
+						"url": {
+							"raw": "http://localhost:8080/billingOrders/",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"billingOrders",
+								""
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"id\": 0,\r\n  \"FirstName\": \"string\",\r\n  \"LastName\": \"string\",\r\n  \"Email\": \"string\",\r\n  \"AddressLine1\": \"string\",\r\n  \"AddressLine2\": \"string\",\r\n  \"PhoneNumber\": \"string\",\r\n  \"Comment\": \"string\",\r\n  \"ZipCode\": \"string\"\r\n}"
+						},
+						"url": {
+							"raw": "http://{{Url}}:{{Port}}/billingOrders/",
+							"protocol": "http",
+							"host": [
+								"{{Url}}"
+							],
+							"port": "{{Port}}",
+							"path": [
+								"billingOrders",
+								""
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Delete",
+					"request": {
+						"method": "DELETE",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"id\": 0,\r\n  \"FirstName\": \"string\",\r\n  \"LastName\": \"string\",\r\n  \"Email\": \"string\",\r\n  \"AddressLine1\": \"string\",\r\n  \"AddressLine2\": \"string\",\r\n  \"PhoneNumber\": \"string\",\r\n  \"Comment\": \"string\",\r\n  \"ZipCode\": \"string\"\r\n}"
+						},
+						"url": {
+							"raw": "http://{{Url}}:{{Port}}/billingOrders/",
+							"protocol": "http",
+							"host": [
+								"{{Url}}"
+							],
+							"port": "{{Port}}",
+							"path": [
+								"billingOrders",
+								""
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "POST Billing Order",
+			"event": [
+				{
+					"listen": "prerequest",
+					"script": {
+						"exec": [
+							"pm.environment.set(\"firstName\", \"honds\");"
+						],
+						"type": "text/javascript"
+					}
+				},
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"\r",
+							"pm.test(\"Successful POST request\", function () {\r",
+							"    pm.expect(pm.response.code).to.be.oneOf([201, 202]);\r",
+							"});\r",
+							"pm.test(\"Status code name has string\", function () {\r",
+							"    pm.response.to.have.status(\"Created\");\r",
+							"});\r",
+							"\r",
+							"\r",
+							""
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "accept",
+						"value": "application/json"
+					},
+					{
+						"key": "Content-Type",
+						"value": "application/json"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n  \"id\": 6,\n  \"firstName\": \"honds\",\n  \"lastName\": \"don\",\n  \"email\": \"humns@gmail.com\",\n  \"phone\": \"0123456789\",\n  \"city\": \"akl\",\n  \"zipCode\": \"1234\",\n  \"addressLine1\": \"newzealand\",\n  \"addressLine2\": \"string\",\n  \"itemNumber\": 0,\n  \"comment\": \"comments\",\n  \"state\": \"AL\"\n}"
+				},
+				"url": {
+					"raw": "http://localhost:8181/billingOrders/",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8181",
+					"path": [
+						"billingOrders",
+						""
+					]
+				},
+				"description": "Working POST Script"
+			},
+			"response": []
+		},
+		{
+			"name": "GET BilingOrder",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"\r",
+							"pm.test(\"Status code is 200\", function () {\r",
+							"    pm.response.to.have.status(200);\r",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				},
+				{
+					"listen": "prerequest",
+					"script": {
+						"exec": [
+							"pm.environment.set(\"firstName\", \"huhjh\");"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					},
+					{
+						"key": "Accept",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": ""
+				},
+				"url": {
+					"raw": "http://localhost:8181/billingOrders/",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8181",
+					"path": [
+						"billingOrders",
+						""
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Delete",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Successful POST request\", function () {\r",
+							"    pm.expect(pm.response.code).to.be.oneOf([201, 404]);\r",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "DELETE",
+				"header": [
+					{
+						"key": "Accept",
+						"value": "application/json",
+						"type": "text"
+					},
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": ""
+				},
+				"url": {
+					"raw": "http://localhost:8181/billingOrders/",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8181",
+					"path": [
+						"billingOrders",
+						""
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "put",
+			"request": {
+				"method": "PUT",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": ""
+				},
+				"url": {
+					"raw": "https://api.qaauto.co.nz/api/v1/samples/",
+					"protocol": "https",
+					"host": [
+						"api",
+						"qaauto",
+						"co",
+						"nz"
+					],
+					"path": [
+						"api",
+						"v1",
+						"samples",
+						""
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}
